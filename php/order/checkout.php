@@ -125,7 +125,7 @@ $result1 = mysqli_query($conn, $sql1);
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyA3ovAd7G1vbAbnK40sYZid-zhBFmaf5rY"></script>
 <script>
 var searchInput = 'search_input';
-
+// this is for the autofillup suggestion
 $(document).ready(function () {
     var autocomplete;
     autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
@@ -149,9 +149,7 @@ $(document).ready(function () {
 });
 });
 </script>  
-
-
-  
+<!-- autosuggestion of the address ends here -->
   </head>
 
   <body class="bg-light">
@@ -209,9 +207,10 @@ $(document).ready(function () {
     <p id="demo"></p>
     <!--Pinning Location-->
 <script>
-
+//THis is for the location
 var x = document.getElementById("demo");
-
+var latt;
+var longg;
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
@@ -220,11 +219,25 @@ function getLocation() {
   }
 }
 
+
 function showPosition(position) {
+ 
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
+  latt=position.coords.latitude;
+  longg=position.coords.longitude;
+
+  console.clear();
+  console.log(latt);
+  console.log(longg);  
+  // <input type="text"  name="named" hidden="hidden" value="<?=$prev_data['name'];?>"  style="width: 13%;"><br>
 }
+
 </script>
+
+
+<!-- the location ends here -->
+
               
               <div class="invalid-feedback">
                 Please enter your shipping address.
