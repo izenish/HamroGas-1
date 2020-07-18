@@ -28,6 +28,7 @@ include "include/dbconnect.php";
     <!-- Custom css -->
     <link rel="stylesheet" href="css/shop_style.css" />
     <!--GoogleFonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet"> 
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap"
       rel="stylesheet"
@@ -237,7 +238,8 @@ include "include/dbconnect.php";
             <div class="card-text">
              <?php echo $row['content']?>
               <br /><br />
-              <h5 class="card-title">Card title</h5>
+              <h4 class="card-title">Rs.<?php echo $row['exc_price']?><font style="font-family: 'Maven Pro', sans-serif;font-size:10px;">/ Exchange cylinder</font></h5>
+              <h6 class="card-title">Rs.<?php echo $row['new_price']?><font style="font-family: 'Maven Pro', sans-serif;font-size:10px;">/ NEW cylinder</font></h4>
               <?php 
               if($row['stock']>10)
               { ?>
@@ -269,98 +271,6 @@ include "include/dbconnect.php";
         ?>          
       </div>
     </div>
-
-
-    <!-- Test for the managed list -->
-    <div class="container">
-    
-    <div class="row mt-5">
-      <h2>Our Partner Brands</h2>
-    </div>
-
-    <div class="row mt-5">
-    <?php 
-      $sql="select * from gas_cylinders order by id DESC";
-      $res=mysqli_query($conn,$sql);
-      if(mysqli_num_rows($res)>0)
-      {
-        while($row=mysqli_fetch_assoc($res))
-        {               
-      ?>
-      
-
-      <div class="col-md-3 col-lg-3">
-      
-        <div class="card card-body " style="height:80% !important">
-        
-          <img
-            class="card-img-top img-fluid"
-            src="images/products/<?= $row['featured_image'];?>"
-          />
-           <ul class="list-group list-group-flush">
-    <li class="list-group-item"><div class="card-title">
-            <h4><?php echo $row['title']?></h4>
-          </div></li>
-    <li class="list-group-item"><div class="card-text">
-           <?php echo $row['content']?>
-            </li>
-    <li class="list-group-item"><?php 
-            if($row['stock']>10)
-            { ?>
-            <a class="btn btn-success text-light" href="php/order/checkout.php"> Buy Now</a> &nbsp;
-          
-        <?php }
-        ?>
-        <?php if($row['stock']<10&&$row['stock']>0)
-            { ?>
-            <a class="btn btn-warning text-light" href="php/order/checkout.php" > Limited Stock! Buy Now </a> &nbsp;
-            <?php 
-            }
-            ?>
-            <?php if($row['stock']<=0)
-            { ?>
-            <a class="btn btn-danger text-light"> Out Of Stock</a> &nbsp;
-            <?php 
-            }
-            ?>    </li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-            
-            <br /><br />
-          </div>
-        </div>
-      </div>
-      <?php 
-        }
-      }
-
-      ?>          
-    </div>
-  </div>
-
-    
-
-    <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="images/products/<?= $row['featured_image'];?>" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Price</li>
-    <li class="list-group-item"><a class="btn btn-danger text-light"> Out Of Stock</a> &nbsp;</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-
 
 
 
