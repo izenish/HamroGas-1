@@ -186,6 +186,7 @@ $(document).ready(function () {
                 </div>
               </div>
             </div>
+            <input type="text"  name="named" hidden="hidden" value="<?=$prev_data['name'];?>"  style="width: 13%;"><br>
             <div class="mb-3">
               <label for="email">Email <span class="text-muted">(Optional)</span></label>
               <input type="email" class="form-control" name="email" placeholder="you@example.com">
