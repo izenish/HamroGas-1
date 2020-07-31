@@ -302,9 +302,11 @@ include "include/dbconnect.php";
             <div class="card-title">
               <h4><?php echo $row['title']?></h4>
             </div>
+            <h6 class="card-title">Rs.<?php echo $row['new_price']?><font style="font-family: 'Maven Pro', sans-serif;font-size:10px;"> only .</font></h4>
+
             <div class="card-text">
-              <?php echo $row['content']?>
-              <br /><br /></br>
+              
+              </br>
               <?php 
               if($row['stock']>10)
               { ?>
